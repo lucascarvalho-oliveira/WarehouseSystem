@@ -21,8 +21,10 @@ public class Empresa {
     private String nome;
     @NotBlank
     private String cnpj;
-    @NotBlank
-    private String endereco;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco")
+    private Endereco endereco;
 
     protected Empresa(){}
 
