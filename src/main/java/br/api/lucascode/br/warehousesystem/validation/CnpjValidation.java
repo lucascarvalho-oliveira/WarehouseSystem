@@ -1,6 +1,6 @@
 package br.api.lucascode.br.warehousesystem.validation;
 
-import br.api.lucascode.br.warehousesystem.exception.Exceptions.CnpjIncorretoException;
+import br.api.lucascode.br.warehousesystem.exception.exceptions.empresa.CnpjIncorretoException;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,7 +1,7 @@
 package br.api.lucascode.br.warehousesystem.service;
 
-import br.api.lucascode.br.warehousesystem.dto.EmpresaRequestDto;
-import br.api.lucascode.br.warehousesystem.exception.Exceptions.CnpjIncorretoException;
+import br.api.lucascode.br.warehousesystem.dto.empresa.EmpresaRequestDto;
+import br.api.lucascode.br.warehousesystem.exception.exceptions.empresa.CnpjIncorretoException;
 import br.api.lucascode.br.warehousesystem.model.Empresa;
 import br.api.lucascode.br.warehousesystem.repository.EmpresaRepository;
 import br.api.lucascode.br.warehousesystem.validation.CnpjValidation;
@@ -19,7 +19,7 @@ public class EmpresaService {
 
     public EmpresaRequestDto salvarEmpresa(Empresa empresa){
         if(!validationCnpj.ComfirmarCnpj(empresa.getCnpj())){
-            throw new CnpjIncorretoException("CNPJ invalido!");
+            throw new CnpjIncorretoException("CNPJ invalido");
         }
 
         repositoryEmpresa.save(empresa);

@@ -1,5 +1,6 @@
 package br.api.lucascode.br.warehousesystem.model;
 
+import br.api.lucascode.br.warehousesystem.model.enums.TipoDocumento;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -25,6 +26,8 @@ public class Cliente {
     @NotBlank
     private String documento;
 
+    private TipoDocumento tipoDocumento;
+
     private boolean emailConfirmado;
 
     protected Cliente(){}
@@ -36,9 +39,10 @@ public class Cliente {
     @OneToMany(mappedBy = "nota_fiscal")@JsonIgnore
     List<NotaFiscal> notasFiscais;
 
-    public Cliente(String nome, String email, String documento, boolean emailConfirmado) {
+    public Cliente(String nome, String email, TipoDocumento tipoDocumento, String documento, boolean emailConfirmado) {
         this.nome = nome;
         this.email = email;
+        this.tipoDocumento = tipoDocumento;
         this.documento = documento;
         this.emailConfirmado = emailConfirmado;
 
